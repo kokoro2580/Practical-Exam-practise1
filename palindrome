@@ -1,0 +1,57 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+string func1(string x){
+	int i = 0, L = x.size();
+	string y = "";
+	while(i < L){
+		y += x[L-i-1];
+		i++;
+	}
+	return y;
+}
+
+string func2(string x){
+	int i = 0, L = x.size();
+	string y = "";
+	while(i < L){
+		y += toupper(x[i]);
+		i++;
+	}
+	return y;	
+}
+
+string func3(string x){
+	int i = 0, L = x.size();
+	string y = "";
+	while(i < L){
+		y += tolower(x[i]);
+		i++;
+	}
+	return y;	
+}
+
+int main() {
+    string input, reversedText;
+
+    // รับข้อความจากผู้ใช้
+    cout << "Input text: ";
+    cin >> input;
+
+    // เรียกฟังก์ชัน func1 เพื่อกลับข้อความ
+    reversedText = func1(input);
+
+    // แสดงข้อความที่กลับ
+    cout << "Reversed text: " << reversedText << endl;
+
+    // ตรวจสอบว่าเป็น Palindrome หรือไม่
+    if (func3(input) == func3(reversedText)) {
+        cout << "Palindrome: Yes" << endl;
+    } else {
+        cout << "Palindrome: No" << endl;
+    }
+
+    return 0;
+}
